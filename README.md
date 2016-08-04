@@ -1,2 +1,4 @@
 # maxquant_pepcalc
-Calculate PEP scores for MaxQuant protein output (proteinGroups.txt).
+Recent versions of MaxQuant do not provide a posterior error probability (PEP) column in the protein-level output (proteinGroups.txt). PEP is commonly used for filtering in proteomics, so it would be advantageous to get this information back. As far as I could find (according to [slide 14](https://www.msi.umn.edu/sites/default/files/MaxQuant_Introduction_112409.pdf)), protein group PEP scores are simply the product of their constituent peptides. I verified this by manually calculating some PEP scores using output from an old MaxQuant version that still had the PEP score in proteinGroups.txt.
+
+This R script uses the "Peptide IDs" column from proteinGroups.txt to take the product of corresponding peptide PEP scores gathered from the peptides.txt output. This has been tested on my own data. I have manually verified that a few of the calculations are correct, but please use at your own risk.
